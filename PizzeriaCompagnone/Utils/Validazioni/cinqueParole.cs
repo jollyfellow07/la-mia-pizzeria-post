@@ -9,15 +9,15 @@ namespace PizzeriaCompagnone.Utils.Validazioni
         {
            
             string fieldValue = (string)value;
-            fieldValue = fieldValue.Trim();
-            int count = fieldValue.Split(' ').Length - 1;
-            if(count >= 4)
+            if (fieldValue != null)
             {
-                return ValidationResult.Success;
+                fieldValue = fieldValue.Trim();
+                int count = fieldValue.Split(' ').Length - 1;
+                if (count >= 4)
+                {
+                    return ValidationResult.Success;
+                }
             }
-         
-           
-
 
             return new ValidationResult("il campo deve avere almeno 5 parole");
         }
